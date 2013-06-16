@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @food.name
+%p
+  %b Protein:
+  = @food.protein
+%p
+  %b Carbohydrate:
+  = @food.carbohydrate
+%p
+  %b Fat:
+  = @food.fat
+%p
+  %b Energy:
+  = @food.energy
+%p
+  %b User:
+  = @food.user_id
+%p
+  %b Consumable:
+  = @food.consumable_id
+%p
+  %b Consumable type:
+  = @food.consumable_type
+
+= link_to 'Edit', edit_food_path(@food)
+\|
+= link_to 'Back', foods_path

@@ -1,0 +1,16 @@
+-if flash[:notice]
+  .notices
+    .bg-color-green
+      %a.close{href: '#'}
+      .notice-header
+        Success!
+      .notice-text
+        =flash[:notice]
+-if flash[:alert]
+  .notices
+    .bg-color-red
+      %a.close{href: '#'}
+      .notice-header
+        Error
+      .notice-text
+        =flash[:alert]

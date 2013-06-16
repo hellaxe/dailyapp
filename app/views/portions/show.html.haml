@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Size:
+  = @portion.size
+%p
+  %b Meal:
+  = @portion.meal_id
+%p
+  %b Food:
+  = @portion.food_id
+
+= link_to 'Edit', edit_portion_path(@portion)
+\|
+= link_to 'Back', portions_path

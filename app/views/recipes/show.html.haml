@@ -1,0 +1,58 @@
+%p#notice= notice
+
+%h2
+  = @recipe.food.name
+%p
+  = @recipe.description
+%table
+  %thead
+    %td Name
+    %td Protein
+    %td Carbohydrate
+    %td Fat
+    %td Energy
+    %td Weigth
+  %tbody
+    - @recipe.ingredients.each do |i|
+      %tr
+        %td
+          = i.food.name
+        %td
+          = i.protein
+        %td
+          = i.carbohydrate
+        %td
+          = i.fat
+        %td
+          = i.energy
+        %td
+          = i.size
+    %tr
+      %td
+        Total
+      %td
+        = @recipe.food.protein * @recipe.size / 100
+      %td
+        = @recipe.food.carbohydrate * @recipe.size / 100
+      %td
+        = @recipe.food.fat * @recipe.size / 100
+      %td
+        = @recipe.food.energy * @recipe.size / 100
+      %td
+        = @recipe.size
+    %tr.success
+      %td
+        Total (in 100g)
+      %td
+        = @recipe.food.protein.round(1)
+      %td
+        = @recipe.food.carbohydrate
+      %td
+        = @recipe.food.fat
+      %td
+        = @recipe.food.energy
+      %td
+        100.0
+%hr
+%p
+  = @recipe.food.user.username

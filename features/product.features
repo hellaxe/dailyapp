@@ -1,0 +1,16 @@
+Feature: Product
+
+    In order to add products info
+    A user
+    Should be able to add products
+
+    Scenario: Add product by user
+        Given I signed up as user
+        When I create product "Banana"
+        And calories of product is 100
+        And protein of product is 20
+        And carbohydrate of product is 15
+        And fat of product is 10
+        And I add product
+        Then I should see "Product was successfully created."
+

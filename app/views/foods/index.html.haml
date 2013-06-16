@@ -1,0 +1,33 @@
+%h1 Listing foods
+
+%table
+  %tr
+    %th Name
+    %th Protein
+    %th Carbohydrate
+    %th Fat
+    %th Energy
+    %th User
+    %th Consumable
+    %th Consumable type
+    %th
+    %th
+    %th
+
+  - @foods.each do |food|
+    %tr
+      %td= food.name
+      %td= food.protein
+      %td= food.carbohydrate
+      %td= food.fat
+      %td= food.energy
+      %td= food.user_id
+      %td= food.consumable_id
+      %td= food.consumable_type
+      %td= link_to 'Show', food
+      %td= link_to 'Edit', edit_food_path(food)
+      %td= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Food', new_food_path

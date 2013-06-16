@@ -1,0 +1,13 @@
+= form_for @daily_food_record do |f|
+  - if @daily_food_record.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@daily_food_record.errors.count, "error")} prohibited this daily_food_record from being saved:"
+      %ul
+        - @daily_food_record.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .actions
+    = f.submit 'Save'

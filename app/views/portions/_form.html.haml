@@ -1,0 +1,19 @@
+= form_for @portion do |f|
+  - if @portion.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@portion.errors.count, "error")} prohibited this portion from being saved:"
+      %ul
+        - @portion.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :size
+    = f.text_field :size
+  .field
+    = f.label :meal_id
+    = f.number_field :meal_id
+  .field
+    = f.label :food_id
+    = f.number_field :food_id
+  .actions
+    = f.submit 'Save'

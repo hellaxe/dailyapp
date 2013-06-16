@@ -1,0 +1,20 @@
+%h1 Listing recipes
+
+%table
+  %tr
+    %th Name
+    %th Protein
+    %th Carbohydrate
+    %th Fat
+    %th Energy
+
+  - @recipes.each do |recipe|
+    %tr
+      %td= link_to recipe.food.name, recipe_path(recipe)
+      %td= recipe.food.protein
+      %td= recipe.food.carbohydrate
+      %td= recipe.food.fat
+      %td= recipe.food.energy
+%br
+
+= link_to 'New Recipe', new_recipe_path

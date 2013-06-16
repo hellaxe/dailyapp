@@ -1,0 +1,13 @@
+Feature: Recipe
+
+    In order to add recipe
+    A user
+    Should be able to add recipes
+
+    Scenario: Add recipe by user
+        Given I signed as user
+        When I create recipe 'Milk cocktail'
+        And select first product 'Banana'
+        And select second product 'Milk'
+        And I add recipe
+        Then I should see 'Recipe was successfully created.'

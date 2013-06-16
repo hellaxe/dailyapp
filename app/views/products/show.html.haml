@@ -1,0 +1,28 @@
+%p
+  %b Name:
+  = @product.food.name
+%p
+  %b Manufacturer:
+  = @product.manufacturer
+%p
+  %b Is verified:
+  = @product.is_verified
+%p
+  %b Protein:
+  = @product.food.protein
+%p
+  %b Carbohydrate:
+  = @product.food.carbohydrate
+%p
+  %b Fat:
+  = @product.food.fat
+%p
+  %b Calories:
+  = @product.food.energy
+%p
+  %b User:
+  = @product.food.user.username if @product.food.user
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path

@@ -1,0 +1,20 @@
+= form_for @meal do |f|
+  - if @meal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@meal.errors.count, "error")} prohibited this meal from being saved:"
+      %ul
+        - @meal.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.fields_for :food do |c|
+    .input-control.text
+      =c.text_field :name, autofocus: true, placeholder: 'Name'
+  .field
+    = f.label :description
+    = f.text_field :description
+  = f.fields_for :portions do |builder|
+    .input-control.text
+      = builder.collection_select :food_id, Food.products_and_recipes,:id, :name
+      = builder.text_field :size, placeholder: 'Size'
+  .actions
+    = f.submit 'Save'

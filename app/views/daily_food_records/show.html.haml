@@ -1,0 +1,30 @@
+%p#notice= notice
+.date_header.grid
+  .row
+    .span4
+      .shift_left
+        %i.icon-arrow-left
+    .span4
+      %h3.date_title
+        = @daily_food_record.date
+    .span4
+      .shift_right
+        %i.icon-arrow-right
+
+%p
+  %b User:
+  = @daily_food_record.user.username
+%table
+  %thead
+    %td Name
+    %td Protein
+    %td Carbohydrate
+    %td Fat
+    %td Energy
+    %td Weight
+
+  - @daily_food_record.meals.each do |meal|
+    = render 'meals/row', meal: meal
+  = render 'daily_food_records/row_total', total: @daily_food_record
+
+= link_to 'Add new meal', new_meal_path

@@ -1,0 +1,23 @@
+%h1 Listing portions
+
+%table
+  %tr
+    %th Size
+    %th Meal
+    %th Food
+    %th
+    %th
+    %th
+
+  - @portions.each do |portion|
+    %tr
+      %td= portion.size
+      %td= portion.meal_id
+      %td= portion.food_id
+      %td= link_to 'Show', portion
+      %td= link_to 'Edit', edit_portion_path(portion)
+      %td= link_to 'Destroy', portion, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Portion', new_portion_path

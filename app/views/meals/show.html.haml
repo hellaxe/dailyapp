@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @meal.food.name
+%p
+  %b Description:
+  = @meal.description
+%p
+  %b Daily record:
+  = @meal.daily_food_record_id
+
+= link_to 'Edit', edit_meal_path(@meal)
+\|
+= link_to 'Back', meals_path

@@ -1,0 +1,2 @@
+module Consumable
+end

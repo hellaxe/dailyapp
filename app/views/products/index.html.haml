@@ -1,0 +1,38 @@
+=title 'Products'
+%h2 Products
+
+%table
+  %tr
+    %th Name
+    %th Manufacturer
+    %th Is verified
+    %th Protein
+    %th Carbohydrate
+    %th Fat
+    %th Calories
+    %th User
+    %th
+    %th
+    %th
+
+  - @products.each do |product|
+    %tr
+      %td= product.food.name
+      %td= product.manufacturer
+      %td
+        -if product.is_verified?
+          %i{class: 'icon-checkmark fg-color-green'}
+        -else
+          %i{class: 'icon-cancel fg-color-red'}
+      %td= product.food.protein
+      %td= product.food.carbohydrate
+      %td= product.food.fat
+      %td= product.food.energy
+      %td= product.food.user.username if product.food.user
+      %td= link_to 'Show', product
+      %td= link_to 'Edit', edit_product_path(product)
+      %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Product', new_product_path

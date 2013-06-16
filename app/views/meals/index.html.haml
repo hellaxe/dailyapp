@@ -1,0 +1,22 @@
+%h1 Listing meals
+
+%table
+  %tr
+    %th Name
+    %th Protein
+    %th Carbohydrate
+    %th Fat
+    %th Energy
+    %th Weight
+
+  - @meals.each do |meal|
+    %tr
+      %td= meal.food.name
+      %td= meal.protein
+      %td= meal.carbohydrate
+      %td= meal.fat
+      %td= meal.energy
+      %td= meal.size
+%br
+
+= link_to 'New Meal', new_meal_path

@@ -1,0 +1,82 @@
+=title 'Main Page | Daily App'
+
+
+
+#main-menu.span7
+  %h3 Main Menu
+  .tiles.clearfix
+    .tile.bg-color-orangeDark
+      .tile-content
+        -#some image here
+      .brand
+        .badge
+          12
+        .name
+          Tasks
+    .tile.bg-color-green
+      .tile-content
+      .brand
+        .name
+          Add Product
+    .tile.bg-color-red.double.image
+      .tile-content
+      .brand
+        .name
+          Add Recipe
+    .tile.double-vertical.bg-color-yellow
+    .tile.bg-color-green
+      .tile-content
+      .brand
+        .name
+          Add Product
+
+    .tile.bg-color-orangeDark
+      .tile-content
+        -#some image here
+      .brand
+        .badge
+          12
+        .name
+          Tasks
+
+    .tile.bg-color-orangeDark
+      .tile-content
+        -#some image here
+      .brand
+        .badge
+          12
+        .name
+          Tasks
+
+    .tile.bg-color-orangeDark
+      .tile-content
+        -#some image here
+      .brand
+        .badge
+          12
+        .name
+          Tasks
+
+    .tile.bg-color-orangeDark
+      .tile-content
+        -#some image here
+      .brand
+        .badge
+          12
+        .name
+          Tasks
+
+    .tile.bg-color-orangeDark
+      .tile-content
+        -#some image here
+      .brand
+        .badge
+          12
+        .name
+          Tasks
+-if user_signed_in?
+  .sidebar.span5
+    %h3 User
+    = "Welcome, #{current_user.username}!"
+    %br
+    = link_to 'Logout', destroy_user_session_path, method: :delete
