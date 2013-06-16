@@ -1,3 +1,3 @@
 dailyapp
 ========
-TODO: add description
+TODO: add description and how-to use doc
