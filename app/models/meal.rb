@@ -10,7 +10,7 @@ class Meal < ActiveRecord::Base
   scope :user, lambda {|user_id| where(user_id: user_id)}
   scope :in_day, lambda {|time| where(created_at: time.all_day)}
 
-  #TODO: Add module "Consumable" with these methods and associations
+  #TODO: Add module "Consumable"
 
   def name
     self.food.name
@@ -18,8 +18,11 @@ class Meal < ActiveRecord::Base
 
   def fill_nested_attributes(user_id)
     self.daily_food_record = DailyFoodRecord.current(user_id)
+    self.daily_food_record.meals << self
     self.food.user_id = user_id
     self.fill_total
+    self.food.save
+    self.daily_food_record.calculate_totals
   end
 
   def build_nested_attributes

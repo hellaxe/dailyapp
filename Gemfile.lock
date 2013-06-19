@@ -41,6 +41,7 @@ GEM
       xpath (~> 1.0.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -100,6 +101,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.1)
     metro-ui-rails (0.15.8.13)
       less-rails (~> 2.2.3)
     mime-types (1.21)
@@ -107,6 +109,10 @@ GEM
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -155,6 +161,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    slop (3.4.5)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -193,6 +200,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   metro-ui-rails
+  pry
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)
