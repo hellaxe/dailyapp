@@ -1,8 +1,7 @@
 Dailyapp::Application.routes.draw do
-  resources :daily_food_records
 
 
-  resources :meals
+  #resources :meals
 
 
   resources :portions
@@ -20,7 +19,13 @@ Dailyapp::Application.routes.draw do
   resources :products
 
 
-  devise_for :users
+  devise_for :users, path: 'accounts'
+
+  resources :users do
+    resources :daily_food_records do
+      resources :meals
+    end
+  end
 
   get "home/index"
 

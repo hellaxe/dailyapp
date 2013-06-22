@@ -1,4 +1,4 @@
-= form_for @daily_food_record do |f|
+= form_for [@user, @daily_food_record] do |f|
   - if @daily_food_record.errors.any?
     #error_explanation
       %h2= "#{pluralize(@daily_food_record.errors.count, "error")} prohibited this daily_food_record from being saved:"

@@ -1,8 +1,8 @@
 class Meal < ActiveRecord::Base
   attr_accessible :daily_food_record_id, :description, :time, :portions_attributes, :food_attributes
-  has_many :portions, dependent: :destroy
+  has_many :portions, dependent: :destroy, autosave: true
   belongs_to :daily_food_record
-  has_one :food, as: :consumable, dependent: :destroy
+  has_one :food, as: :consumable, dependent: :destroy, autosave: true
 
   accepts_nested_attributes_for :portions
   accepts_nested_attributes_for :food
@@ -17,11 +17,8 @@ class Meal < ActiveRecord::Base
   end
 
   def fill_nested_attributes(user_id)
-    self.daily_food_record = DailyFoodRecord.current(user_id)
-    self.daily_food_record.meals << self
     self.food.user_id = user_id
     self.fill_total
-    self.food.save
     self.daily_food_record.calculate_totals
   end
 
@@ -56,6 +53,7 @@ class Meal < ActiveRecord::Base
     self.food.carbohydrate = self.portions.inject(0){|sum, elem| sum += elem.carbohydrate}
     self.food.fat = self.portions.inject(0){|sum, elem| sum += elem.fat}
     self.food.energy = self.portions.inject(0){|sum, elem| sum += elem.energy}
+    self.food.save
   end
 
   private

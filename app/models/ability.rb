@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     unless user.nil?
-      if user.role? :admin
+      if user.role?(:admin) || user.role?(:member)
         can :manage, :all
       else
         can :read, :all

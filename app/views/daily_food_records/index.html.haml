@@ -1,19 +1,13 @@
-%h1 Listing daily_food_records
+%h2.title Stats
 
 %table
   %tr
-    %th User
+    %th Date
     %th
     %th
     %th
 
   - @daily_food_records.each do |daily_food_record|
     %tr
-      %td= daily_food_record.user_id
-      %td= link_to 'Show', daily_food_record
-      %td= link_to 'Edit', edit_daily_food_record_path(daily_food_record)
-      %td= link_to 'Destroy', daily_food_record, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Daily food record', new_daily_food_record_path
+      %td= daily_food_record.date
+      %td= link_to 'Show', [@user, daily_food_record]
