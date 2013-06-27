@@ -23,6 +23,9 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
+  gem 'better_errors'
+  gem 'rack-mini-profiler'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -36,6 +39,11 @@ gem 'metro-ui-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'cancan'
+gem 'annotate'
+gem 'rails_best_practices'
+gem 'reek'
+gem 'bullet'
+gem 'draper'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
